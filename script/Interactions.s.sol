@@ -7,12 +7,10 @@ import {DevOpsTools} from "lib/foundry-devops/src/DevOpsTools.sol";
 import {MoodNft} from "../src/MoodNft.sol";
 
 contract MintBasicNft is Script {
-    string PUG =
-        "ipfs://bafybeig37ioir76s7mg5oobetncojcm3c3hxasyd4rvid4jqhy4gkaheg4/?filename=0-PUG.json";
+    string PUG = "ipfs://bafybeig37ioir76s7mg5oobetncojcm3c3hxasyd4rvid4jqhy4gkaheg4/?filename=0-PUG.json";
 
     function run() external {
-        address mostRecentDeployedContract = DevOpsTools
-            .get_most_recent_deployment("BasicNft", block.chainid);
+        address mostRecentDeployedContract = DevOpsTools.get_most_recent_deployment("BasicNft", block.chainid);
 
         mintNftOnContract(mostRecentDeployedContract);
     }
@@ -26,8 +24,7 @@ contract MintBasicNft is Script {
 
 contract MintMoodNft is Script {
     function run() external {
-        address mostRecentlyDeployedMoodNft = DevOpsTools
-            .get_most_recent_deployment("MoodNft", block.chainid);
+        address mostRecentlyDeployedMoodNft = DevOpsTools.get_most_recent_deployment("MoodNft", block.chainid);
         mintNftOnContract(mostRecentlyDeployedMoodNft);
     }
 
@@ -42,8 +39,7 @@ contract FlipMoodNft is Script {
     uint256 public constant TOKEN_ID_TO_FLIP = 0;
 
     function run() external {
-        address mostRecentlyDeployedMoodNft = DevOpsTools
-            .get_most_recent_deployment("MoodNft", block.chainid);
+        address mostRecentlyDeployedMoodNft = DevOpsTools.get_most_recent_deployment("MoodNft", block.chainid);
         flipMoodNft(mostRecentlyDeployedMoodNft);
     }
 
